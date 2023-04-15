@@ -37,7 +37,6 @@ brew install gh
 
 # Install/setup tmux.
 brew install tmux
-tmux kill-server  # kill tmux server if older version is already running on the machine.
 
 # Change default shell to fish and add `brew` path.
 if [[ $os_name == "Linux" ]]; then
@@ -51,3 +50,5 @@ else
     echo "Not supported OS" $os_name
 fi
 
+# Kill tmux server if older version is already running on the machine.
+tmux kill-server
