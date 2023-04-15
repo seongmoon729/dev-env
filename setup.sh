@@ -20,9 +20,26 @@ else
 fi
 brew developer off
 
-# Install/setup fish shell.
+# Install fish shell.
 brew install fish
 
+# Install exa.
+brew install exa
+
+# Install starship.
+brew install starship
+
+# Install neovim.
+brew install neovim
+
+# Install github cli.
+brew install gh
+
+# Install/setup tmux.
+brew install tmux
+tmux kill-server  # kill tmux server if older version is already running on the machine.
+
+# Change default shell to fish and add `brew` path.
 if [[ $os_name == "Linux" ]]; then
     echo "exec $(which fish) -l" > "${HOME}/.bash_profile" 
     fish -c "fish_add_path ${HOME}/.linuxbrew/bin"
@@ -33,20 +50,4 @@ elif [[ $os_name == "Darwin" ]]; then
 else
     echo "Not supported OS" $os_name
 fi
-
-# Install/setup neovim.
-brew install neovim
-
-# Install exa.
-brew install exa
-
-# Install starship.
-brew install starship
-
-# Install github cli.
-brew install gh
-
-# Install/setup tmux.
-brew install tmux
-tmux kill-server  # kill tmux server if older version is already running on the machine.
 
