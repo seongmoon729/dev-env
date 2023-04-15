@@ -7,6 +7,9 @@ end
 # Neovim.
 alias vim "nvim"
 
+# Python.
+alias python "python3"
+
 # Starship (cross-shell prompt).
 starship init fish | source
 

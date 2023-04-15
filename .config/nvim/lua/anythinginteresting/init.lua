@@ -1,17 +1,14 @@
--- Install lazy.nvim if not exist.
-local lazypath = vim.fn.stdpath 'data' .. '/lazy/lazy.nvim'
-if not vim.loop.fs_stat(lazypath) then
-  vim.fn.system {
-    'git',
-    'clone',
-    '--filter=blob:none',
-    'https://github.com/folke/lazy.nvim.git',
-    '--branch=stable',  -- latest stable release
-    lazypath,
-  }
+-- Install packer.nvim if not exist.
+local packerpath = vim.fn.stdpath 'data' .. '/site/pack/packer/start/packer.nvim'
+if not vim.loop.fs_stat(packerpath) then
+    vim.fn.system {
+        'git',
+	'clone',
+	'--depth=1',
+	'https://github.com/wbthomason/packer.nvim',
+	packerpath,
+    }
 end
-vim.opt.rtp:prepend(lazypath)
 
 require('anythinginteresting.remap')
-require('anythinginteresting.lazy')
-require('anythinginteresting.telescope')
+require('anythinginteresting.set')
