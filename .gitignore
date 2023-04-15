@@ -1,0 +1,11 @@
+.DS_Store
+*.log
+
+# Fish
+.config/fish/fish_variables
+.config/fish/completions
+.config/fish/conf.d
+.config/fish/functions
+
+# Nvim
+.config/nvim/lazy-lock.json
