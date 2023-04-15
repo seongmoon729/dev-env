@@ -14,9 +14,9 @@ ln -sf "$(pwd)/.config/tmux/tmux.conf" "${HOME}/.tmux.conf"
 # Install homebrew.
 os_name="$(uname -s)"
 if [[ $os_name == "Linux" ]]; then
-    mkdir "~/.linuxbrew"
-    curl -L "https://github.com/Homebrew/brew/tarball/master" | tar xz --strip 1 -C "~/.linuxbrew"
-    eval $(~/.linuxbrew/bin/brew shellenv)
+    mkdir "${HOME}/linuxbrew"
+    curl -L "https://github.com/Homebrew/brew/tarball/master" | tar xz --strip 1 -C "${HOME}/linuxbrew"
+    eval "$(${HOME}/.linuxbrew/bin/brew shellenv)"
 elif [[ $os_name == "Darwin" ]]; then
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
     eval $(/opt/homebrew/bin/brew shellenv)
