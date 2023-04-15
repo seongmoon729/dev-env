@@ -21,12 +21,17 @@ brew developer off
 
 # Install/setup fish shell.
 brew install fish
-error_msg=$(echo "$(which fish)" | tee -a /etc/shells 2>&1 > /dev/null)
-if [[ $error_msg == *"Permission denied"* ]]; then
+
+if [[ $os_name == "Linux" ]]; then
+    echo "exec $(which fish) -l" > "${HOME}/.bash_profile" 
+    fish -c "fish_add_path ${HOME}/.linuxbrew/bin"
+elif [[ $os_name == "Darwin" ]]; then
     echo "$(which fish)" | sudo tee -a /etc/shells
+    sudo chsh -s "$(which fish)"  
+    fish -c "fish_add_path /opt/homebrew/bin"
+else
+    echo "Not supported OS" $os_name
 fi
-chsh -s "$(which fish)"
-fish -c "fish_add_path {\$HOME}/.linuxbrew/bin"  # add brew path to fish shell.
 
 # Install/setup tmux.
 brew install tmux
