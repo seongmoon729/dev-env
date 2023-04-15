@@ -1,5 +1,11 @@
 #!/bin/bash
 
+# Make .config directory and symlinks.
+mkdir -p "${HOME}/.config"
+ln -sf "$(pwd)/.config/nvim" "${HOME}/.config/nvim"
+ln -sf "$(pwd)/.config/fish" "${HOME}/.config/fish"
+ln -sf "$(pwd)/.config/tmux/tmux.conf" "${HOME}/.tmux.conf"
+
 # Install homebrew.
 os_name="$(uname -s)"
 if [[ $os_name == "Linux" ]]; then
@@ -43,9 +49,4 @@ brew install starship
 # Install github cli.
 brew install gh
 
-# Make symlinks.
-mkdir -p "${HOME}/.config"
-ln -sf "$(pwd)/.config/nvim" "${HOME}/.config/nvim"
-ln -sf "$(pwd)/.config/fish" "${HOME}/.config/fish"
-ln -sf "$(pwd)/.config/tmux/tmux.conf" "${HOME}/.tmux.conf"
 
