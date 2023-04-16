@@ -18,5 +18,5 @@ fish_vi_key_bindings
 
 # SSH command with tmux argument.
 function st
-    ssh -t $argv -- /bin/sh -c 'tmux has-session && exec tmux attach || exec tmux'
+    ssh -t $argv -- 'tmux has-session && exec tmux attach || exec tmux'
 end
