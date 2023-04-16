@@ -18,5 +18,14 @@ fish_vi_key_bindings
 
 # SSH command with tmux argument.
 function st
-    ssh -t $argv -- 'tmux has-session && exec tmux attach || exec tmux'
+    set os (string trim (ssh $argv -- uname -s))
+    if [ $os = "Linux" ]
+        set brew_path "~/.linuxbrew/bin"
+    else if [ $os = "Darwin" ]
+        set brew_path "/opt/homebrew/bin"
+    else
+        echo Not implemented yet.
+        exit 1
+    end
+    ssh -t $argv -- "export PATH=$brew_path:\$PATH && tmux has-session &> /dev/null && exec tmux attach || exec tmux"
 end
