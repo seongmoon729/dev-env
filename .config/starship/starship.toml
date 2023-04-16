@@ -36,7 +36,6 @@ truncate_to_repo = false
 [directory.substitutions]
 "Documents" = " "
 "Downloads" = " "
-"Music" = " "
 "Pictures" = " "
 
 [git_branch]
@@ -44,13 +43,13 @@ format = '[[ $symbol $branch ](fg:muted_rose_pink bg:muted_blue_shade)]($style)'
 style = "bg:muted_blue_shade"
 symbol = " "
 
+[git_state]
+format = '\([$state( $progress_current/$progress_total)]($style)\) '
+style = "bold yellow"
+
 [git_status]
 format = '[[($all_status$ahead_behind )](fg:muted_rose_pink bg:muted_blue_shade)]($style)'
 style = "bg:muted_blue_shade"
-
-[git_state]
-format = '\([$state( $progress_current/$progress_total)]($style)\) '
-style = "bright-black"
 
 [git_metrics]
 disabled = false
