@@ -28,6 +28,9 @@ else
 fi
 brew developer off
 
+# Install npm.
+brew install npm
+
 # Install fish shell.
 brew install fish
 
